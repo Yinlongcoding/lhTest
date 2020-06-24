@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lineHeight测试</title>
+  <style>
+    .btn {
+      line-height: 40px;
+      height: 40px;
+      background-color: yellowgreen;
+      text-align: center;
+      width: 200px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h3>px block</h3>
+  <div class="wrap">
+    <div style="font-size: 12px;" class="btn">字号12px的按钮</div>
+    <div style="font-size: 14px;" class="btn">字号14px的按钮</div>
+    <div style="font-size: 15px;" class="btn">字号15px的按钮</div>
+    <div style="font-size: 16px;" class="btn">字号16px的按钮</div>
+    <div style="font-size: 21px;" class="btn">字号21px的按钮</div>
+  </div>
+  <div class="result">
+    
+  </div>
+</body>
+<script>
+var wrap = document.querySelector('.wrap');
+var resWrap = document.querySelector('.result');
+
+wrap.addEventListener('click', function(e) {
+  var tar = e.target;
+  var fontSzie = tar.style.fontSize;
+  var comFontSize = getComputedStyle(tar).fontSize;
+  var note = tar.innerText;
+  var text = `
+    <p>${note}</p>
+    <p>css单位：${fontSzie}</p>
+    <p>计算单位：${comFontSize}</p>
+  `
+  resWrap.innerHTML = text;
+})
+</script>
+</html>
